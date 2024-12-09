@@ -24,6 +24,11 @@ public class LogsAnalyzer implements LogsAnalyzerInterface {
 
 	@Override
 	public String zipOpener(File fileName) {
+		File directory = new File("src\\main\\resources\\unzipedFiles");
+		if(!directory.exists()){
+			directory.mkdir();
+		}
+
 		try(ZipInputStream zipFile = new ZipInputStream(new FileInputStream(fileName))){
 
 			ZipEntry entry;
